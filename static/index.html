@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157462309-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-157462309-1');
+	</script>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css" />
+	<link rel="stylesheet" href="/static/css/style.css" />
+
+	<link rel="stylesheet" href="jquery-jvectormap-2.0.1.css" type="text/css" media="screen" />
+	<link rel="stylesheet" media="all" href="https://germini.info/js/jqvmap/src/jquery-jvectormap.css" />
+	<script src="https://germini.info/js/jqvmap/src/jquery-1.8.2.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/jquery-jvectormap.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/jquery-mousewheel.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/jvectormap.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/abstract-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/abstract-canvas-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/abstract-shape-element.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/svg-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-group-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-canvas-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-shape-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-path-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-circle-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-image-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/svg-text-element.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/vml-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-group-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-canvas-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-shape-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-path-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-circle-element.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/vml-image-element.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/map-object.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/region.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/marker.js"></script>
+
+	<script src="https://germini.info/js/jqvmap/src/vector-canvas.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/simple-scale.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/ordinal-scale.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/numeric-scale.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/color-scale.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/legend.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/data-series.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/proj.js"></script>
+	<script src="https://germini.info/js/jqvmap/src/map.js"></script>
+	<script src="/static/js/map.js"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+	<script src="https://germini.info/js/jqvmap/src/jquery-jvectormap-world-mill-en.js"></script>
+	<title>Coronavirus map</title>
+	<style>
+		html,
+		body {
+			height: 100vh;
+			overflow: hidden;
+
+		}
+
+		td,
+		th {
+			color: #212529 !important;
+		}
+
+		.timelines {
+			margin-left: 10px;
+			border-left: 4px solid black;
+			padding-left: 10px;
+			padding-top: 5px;
+		}
+
+		.buttons {
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 10px 15px;
+			border-radius: 20px;
+		}
+
+		/* Style the active class (and buttons on mouse-over) */
+
+		.activex,
+		.buttons:hover {
+			background-color: #9e9e9e;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header shadow">
+		<a class="logo">Coronavirus Map</a>
+		<input class="menu-btn" type="checkbox" id="menu-btn" />
+		<label class="menu-icon" for="menu-btn">
+			<span class="navicon"></span>
+		</label>
+		<ul class="menu">
+			<li>
+				<a href="/">한국 맵</a>
+			</li>
+			<li>
+				<a href="/world">국제 맵</a>
+			</li>
+			<li>
+				<a href="https://vlioo.devent.kr/">중국 감염자 수 예측</a>
+			</li>
+			<li>
+				<a href="http://www.mohw.go.kr/react/popup_200128.html">선별 진료소 현황</a>
+			</li>
+			<li>
+				<a href="/about">세미콜론</a>
+			</li>
+		</ul>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3" style="">
+				<div class="row">
+					<div class="col-md-12 mx-0 px-2">
+						<div class="card shadow mb-2">
+							<div class='card-header py-3 d-flex flex-row align-items-center justify-content-between'>
+								<h5 class="m-0 font-weight-bold text-primary text-danger">전세계 감염자</h5>
+							</div>
+							<h1 class="num card-body" id="totalconfirmed">00000</h1>
+						</div>
+					</div>
+					<div class="col-md-12 mx-0 px-2" style="">
+						<div class="card shadow mb-2">
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h5 class="m-0 font-weight-bold text-primary text-danger">나라별 감염자</h5>
+							</div>
+							<div style="overflow-y: scroll; height: 680px" class="card-body">
+								<table class="table" id="confirmedcr" style="color:white;">
+									<thead>
+										<tr>
+											<th>나라</th>
+											<th>감염자</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-6 px-0">
+				<div class="card col-md-12 px-0" style="height: 895px;">
+					<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+						<h5 class="m-0 font-weight-bold text-primary text-danger">감염자 경로 지도</h5>
+					</div>
+					<div id="map1" class="card-body" style="height: 100%;"></div>
+					<script src="https://maps.googleapis.com/maps/api/js?region=KR&key=AIzaSyAc2h4PifzInktgpkftPNKuuDP-1lNzFvU&callback=initMap"></script>
+
+				</div>
+				<div id="map_inform"></div>
+				<div id="marker_inform">
+					<div>
+						<img src="/static/img/blue.png">: 불확실한 정보</div>
+					<div>
+						<img src="/static/img/red.png">: 정부제공 자료</div>
+				</div>
+
+			</div>
+			<div class="col-md-3" style="">
+				<div class="row">
+					<div class="col-md-12 mx-0 px-2">
+						<div class="card shadow mb-2">
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h5 class="m-0 font-weight-bold text-primary text-danger">전세계 사망자</h5>
+							</div>
+							<h1 class="num card-body" id="totaldeath">00000</h1>
+
+						</div>
+					</div>
+
+					<div class="col-md-12 mx-0 px-2">
+						<div class="card shadow mb-2">
+							<div class="btnC card-header py-3 d-flex flex-row align-items-center justify-content-around flex-nowrap">
+								<div class="text-nowrap buttons activex" href="#" onclick="cm(1);">
+									<div id="mb1">한국자료</div>
+								</div>
+								<div class="text-nowrap buttons" href="#" onclick="cm(2);">
+									<div id="mb2">관련뉴스</div>
+								</div>
+								<div class="text-nowrap buttons" href="#" onclick="cm(3);">
+									<div id="mb3">관련자료</div>
+								</div>
+							</div>
+
+							<div class="showtapmenu" id="m1" style='flex: 1;'>
+								<table class="table" id="koreainfotable">
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+							<div class="showtapmenu" id="m2" style='flex: 1;'>
+								<div style="overflow-y: scroll; height: 660px" id="newsshow" class="reload">
+								</div>
+							</div>
+							<div class="card-body" id="m3">
+								<h4>
+									코로나바이러스란?
+								</h4>
+								<div>
+									코로나 바이러스는 광범위한 호흡기 및 소화기 감염을 일으키는 RNA 바이러스로 일반 감기, 중증급성호흡기증후군 및 중동호흡기증후군과 같은 질환을 유발할 수 있습니다. 코로나 바이러스의 전파 경로는 매우 다양합니다. 비단 감염자와의 밀접한 접촉이 없더라도 가벼운 일상 생활을 통해서 감염될 수도 있습니다.
+								</div>
+								<br>
+								<h4>
+									코로나바이러스 증상
+								</h4>
+								<div>
+									- 발열, 식욕감퇴, 구역 및 구토, 암갈색 소변, 권태감, 식욕부진, 복부 불쾌감, 황달
+									<br> - 6세 미만 소아에서 대부분 무증상(70%)
+									<br> - 약 10%에게 황달이 발생
+									<br> - 연령이 높아질수록 70%이상 황달이 동반되며 증상이 심해짐
+									<br>
+								</div>
+								<br>
+								<h4>
+									감염 예방하기
+								</h4>
+								<div>
+									- KF94(바이러스 94% 걸러줌) 이상의 마스크 착용
+									<br> - KF80(바이러스 80% 걸러줌) 마스크는 효력이 부족,
+									<br> - 손 자주 씻으며 외출 자제
+									<br> - 감기 증세나 구토, 열이 있을 경우 즉시 병원으로 갈 것
+									<br> - 병원에서 약을 받아도 나아지지 않으면 큰 병원으로 갈 것
+									<br> - 의심 증상이 나타나면, 즉시
+									<strong>1339</strong>로 전화 할 것
+									<br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		var btns = document.getElementsByClassName("buttons");
+		// Loop through the buttons and add the active class to the current/clicked button
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function() {
+				var current = document.getElementsByClassName("activex");
+				current[0].className = current[0].className.replace(" activex", "");
+				this.className += " activex";
+			});
+		}
+	</script>
+	<script>
+		function dataload() {
+			var deathct = 0;
+			var confct = 0;
+			jQuery(function() {
+				var $ = jQuery;
+				$.getJSON("/static/data/infectionData.json", function(data) {
+					for (var i = 0; i < Object.keys(data.death).length; i++)
+						deathct = deathct + data.death[Object.keys(data.death)[i]] * 1;
+					for (var i = 0; i < Object.keys(data.infected).length; i++) {
+						confct = confct + data.infected[Object.keys(data.infected)[i]] * 1;
+						$('#confirmedcr').append("<tr><td>" + data.ctrs[Object.keys(data.ctrs)[i]] + "</td><td>" + data.infected[Object.keys(data.infected)[i]] * 1 + "</td></tr>");
+					}
+					$('#totaldeath').text(deathct);
+					$('#totalconfirmed').text(confct);
+					$('#totalrecovered').text('');
+					//alert(data.infected["CN"]);
+				})
+				$.getJSON("/static/data/news.json", function(data) {
+					for (var i = 0; i < Object.keys(data.title).length; i++) {
+						$('#newsshow').append('<a href="' + data.url[Object.keys(data.url)[i]] + '" target="_blank"><div class="media text-muted"><p class="card-body media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block" style="color: #212529;">@' + data.sor[Object.keys(data.sor)[i]] + '</strong><span style="color: #212529;">' + data.title[Object.keys(data.title)[i]] + '</span></div></a>');
+					}
+				})
+				$.getJSON("/static/data/koreainfo.json", function(data) {
+					for (var i = 0; i < Object.keys(data.koreainfo).length; i++) {
+						$('#koreainfotable').append('<tr><td>' + Object.keys(data.koreainfo)[i] + '</td><td>' + data.koreainfo[Object.keys(data.koreainfo)[i]] + '</td></tr>');
+					}
+				})
+			});
+		}
+		dataload();
+		/*var timere=20;
+		$('#totalrecovered').text(timere/2);
+		setInterval(function() {
+			timere-=1;
+			if(timere==0) {
+				$('#totalrecovered').text("RE!");
+				location.reload();
+			} else {
+				if(timere%2==0) {
+					$('#totalrecovered').text(timere/2);
+					$('#timertt').text("Auto Refresh");
+				} else {
+					$('#totalrecovered').text("stop");
+					$('#timertt').text("Click to");
+				}
+			}
+		}, 500);*/
+	</script>
+	<script>
+		var pg = 3;
+		for (var i = 2; i <= pg; i++) {
+			$('#m' + i).hide();
+		}
+
+		function cm(page) {
+			for (var i = 1; i <= pg; i++) {
+				if (i == page) {
+					$('#m' + i).show();
+					$('#mb' + i).addClass('sel');
+				} else {
+					$('#m' + i).hide();
+					$('#mb' + i).removeClass('sel');
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		if (screen.width <= 1440) {
+			document.location = "/static/mobile.html";
+		}
+	</script>
+
+</body>
+
+</html>
